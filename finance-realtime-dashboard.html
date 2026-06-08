@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Financial Dashboard — Wesley Haruo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0f1117;--bg2:#161b27;--bg3:#1a2035;
+    --border:#1e2130;--text:#e2e8f0;--muted:#64748b;--hint:#475569;
+    --blue:#378ADD;--green:#22c55e;--red:#ef4444;--amber:#EF9F27;
+    --purple:#7F77DD;--teal:#5DCAA5;
+  }
+  body{background:var(--bg);font-family:'Inter','Segoe UI',sans-serif;color:var(--text);min-height:100vh}
+  a{color:var(--blue);text-decoration:none}
+
+  /* ── Nav ── */
+  nav{background:var(--bg);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+  .brand{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  .nav-right{display:flex;align-items:center;gap:20px;font-size:12px;color:var(--muted)}
+  .badge{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:500}
+
+  /* ── Layout ── */
+  .wrap{max-width:1400px;margin:0 auto;padding:20px 24px}
+
+  /* ── Ticker strip ── */
+  .strip{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 16px;margin-bottom:16px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .strip-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
+  .tick-btn{padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
+  .tick-btn:hover{border-color:var(--blue);color:var(--text)}
+  .tick-btn.active{background:rgba(55,138,221,0.15);border-color:var(--blue);color:var(--blue)}
+  .tick-price{font-size:11px;margin-left:3px}
+
+  /* ── Main grid ── */
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:16px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+
+  /* ── Cards ── */
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+  .card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .card-title{font-size:13px;font-weight:600;color:var(--text)}
+  .card-sub{font-size:11px;color:var(--muted)}
+
+  /* ── KPI row ── */
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+  .kpi{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;transition:border-color .2s}
+  .kpi:hover{border-color:var(--blue)}
+  .kpi-lbl{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .kpi-val{font-size:21px;font-weight:700;line-height:1}
+  .kpi-sub{font-size:11px;margin-top:4px}
+  .pos{color:var(--green)}.neg{color:var(--red)}.neu{color:var(--muted)}
+
+  /* ── Charts ── */
+  .chart-area{position:relative;height:300px;margin-bottom:8px}
+  .vol-area{position:relative;height:70px}
+  .chart-controls{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  .chart-controls label{font-size:12px;color:var(--muted)}
+  select{background:var(--bg3);border:1px solid var(--border);color:var(--text);font-size:12px;padding:5px 10px;border-radius:7px;cursor:pointer;font-family:inherit}
+  select:focus{outline:none;border-color:var(--blue)}
+  .tog-wrap{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;color:var(--muted)}
+  .tog{width:30px;height:17px;background:var(--hint);border-radius:9px;position:relative;transition:background .2s}
+  .tog.on{background:var(--green)}
+  .tog::after{content:'';position:absolute;width:13px;height:13px;background:#fff;border-radius:50%;top:2px;left:2px;transition:transform .2s}
+  .tog.on::after{transform:translateX(13px)}
+
+  /* ── Tabs ── */
+  .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:14px}
+  .tab{padding:8px 16px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}
+  .tab.on{color:var(--blue);border-bottom-color:var(--blue)}
+  .tab:hover:not(.on){color:var(--text)}
+
+  /* ── Table ── */
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{color:var(--muted);font-weight:600;text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+  td{padding:8px 10px;border-bottom:1px solid rgba(30,33,48,.6);color:var(--text)}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(255,255,255,.025)}
+
+  /* ── Order book ── */
+  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .book-panel{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px}
+  .book-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+  .book-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;position:relative;z-index:1}
+  .book-bar{position:absolute;top:0;bottom:0;left:0;opacity:.14;border-radius:2px;z-index:0}
+  .book-row span{position:relative;z-index:1}
+  .spread-bar{text-align:center;font-size:12px;padding:8px 0;color:var(--muted)}
+
+  /* ── News ── */
+  .news-item{padding:12px 0;border-bottom:1px solid rgba(30,33,48,.7)}
+  .news-item:last-child{border-bottom:none}
+  .news-ticker{display:inline-block;background:rgba(55,138,221,.15);color:var(--blue);font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:5px}
+  .news-text{font-size:13px;line-height:1.55;color:var(--text)}
+  .news-meta{font-size:11px;color:var(--muted);margin-top:4px}
+
+  /* ── Side panel ── */
+  .side-section{margin-bottom:16px}
+  .perf-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(30,33,48,.6);font-size:12px}
+  .perf-row:last-child{border-bottom:none}
+  .mini-bar-wrap{width:60px;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden}
+  .mini-bar{height:100%;border-radius:3px;transition:width .4s}
+
+  /* ── Footer ── */
+  footer{border-top:1px solid var(--border);padding:14px 24px;font-size:11px;color:var(--hint);text-align:center;margin-top:8px}
+
+  .flash{animation:blink .35s ease-out}
+  @keyframes blink{0%{opacity:.5}100%{opacity:1}}
+  .spark-svg{vertical-align:middle}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand"><div class="dot"></div>Financial Dashboard</div>
+  <div class="nav-right">
+    <span id="clock-nav"></span>
+    <span class="badge" id="mkt-status">MARKET OPEN</span>
+    <span>Wesley Haruo · <a href="https://github.com/wesleyharuo">GitHub</a> · <a href="https://linkedin.com/in/wesleyharuo">LinkedIn</a></span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- Ticker strip -->
+  <div class="strip">
+    <span class="strip-lbl">Watchlist</span>
+    <div id="ticker-strip"></div>
+  </div>
+
+  <!-- KPI row -->
+  <div class="kpi-row" id="kpi-row"></div>
+
+  <div class="grid">
+
+    <!-- Left: charts + tabs -->
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-hdr">
+          <div>
+            <div class="card-title" id="chart-title">AAPL — Apple Inc.</div>
+            <div class="card-sub">Real-time price simulation · Updates every 1.5s</div>
+          </div>
+        </div>
+        <div class="chart-controls">
+          <label>Type</label>
+          <select id="ctype"><option value="candle">Candlestick</option><option value="line">Line</option><option value="area">Area</option></select>
+          <label>Window</label>
+          <select id="cperiod"><option value="60">1 min</option><option value="150" selected>2.5 min</option><option value="300">5 min</option></select>
+          <div class="tog-wrap" onclick="toggleMA()"><div class="tog on" id="ma-tog"></div><span>MA20</span></div>
+          <div class="tog-wrap" onclick="toggleVol()"><div class="tog on" id="vol-tog"></div><span>Volume</span></div>
+        </div>
+        <div class="chart-area"><canvas id="main-chart"></canvas></div>
+        <div class="vol-area" id="vol-wrap"><canvas id="vol-chart"></canvas></div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="card">
+        <div class="tabs" id="tabs">
+          <div class="tab on" data-tab="watchlist">Watchlist</div>
+          <div class="tab" data-tab="depth">Order Book</div>
+          <div class="tab" data-tab="news">News Feed</div>
+          <div class="tab" data-tab="ratios">Key Ratios</div>
+        </div>
+        <div id="tab-watchlist"></div>
+        <div id="tab-depth" style="display:none"></div>
+        <div id="tab-news" style="display:none"></div>
+        <div id="tab-ratios" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- Right: side panel -->
+    <div>
+      <div class="card side-section">
+        <div class="card-hdr"><span class="card-title">Today's Performance</span></div>
+        <div id="side-perf"></div>
+      </div>
+      <div class="card side-section">
+        <div class="card-hdr"><span class="card-title">Market Summary</span></div>
+        <div id="side-market"></div>
+      </div>
+      <div class="card">
+        <div class="card-hdr"><span class="card-title">Sector Exposure</span></div>
+        <div style="height:180px;position:relative"><canvas id="sector-chart"></canvas></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>Financial Analysis Dashboard &nbsp;·&nbsp; Data simulated from realistic market parameters &nbsp;·&nbsp; Built with Python · Plotly Dash · yfinance &nbsp;·&nbsp; Wesley Haruo Kurosawa da Silva &nbsp;·&nbsp; Ontario, Canada</footer>
+
+<script>
+const TICKERS = {
+  AAPL:  {name:'Apple Inc.',             base:211, vol:0.008, sector:'Technology',  color:'#378ADD', cap:2800},
+  MSFT:  {name:'Microsoft Corp.',        base:415, vol:0.007, sector:'Technology',  color:'#1D9E75', cap:3100},
+  GOOGL: {name:'Alphabet Inc.',          base:178, vol:0.009, sector:'Comm.',       color:'#EF9F27', cap:2100},
+  JPM:   {name:'JPMorgan Chase',         base:235, vol:0.006, sector:'Financial',   color:'#7F77DD', cap:560},
+  RY:    {name:'Royal Bank of Canada',   base:168, vol:0.005, sector:'Financial',   color:'#D85A30', cap:210},
+  TD:    {name:'TD Bank',                base:83,  vol:0.005, sector:'Financial',   color:'#5DCAA5', cap:150},
+  CNR:   {name:'CN Railway',            base:172, vol:0.004, sector:'Industrials', color:'#ED93B1', cap:96},
+  SHOP:  {name:'Shopify Inc.',           base:98,  vol:0.015, sector:'Technology',  color:'#AFA9EC', cap:88},
+};
+
+const NEWS = [
+  t=>`${t} beats Q2 earnings estimates by 4.2%, raises full-year guidance`,
+  t=>`Analysts upgrade ${t} to Buy — price target raised to new high`,
+  t=>`${t} announces $2B share buyback program effective immediately`,
+  t=>`${t} reports record revenue in cloud segment, up 18% YoY`,
+  t=>`${t} forms strategic partnership with major European firm`,
+  t=>`${t} expands into AI infrastructure with $800M investment`,
+  t=>`${t} increases quarterly dividend by 6%`,
+  t=>`Insider buying detected at ${t} — executives acquire 50K shares`,
+  t=>`${t} misses revenue estimate by 2%; shares down in after-hours`,
+  t=>`${t} files for new patent in quantum computing division`,
+];
+
+const RATIOS = {
+  AAPL: {pe:28.5, pb:42.1, roe:'160%', margin:'25.3%', de:'1.99', cr:'0.94', dy:'0.51%'},
+  MSFT: {pe:34.2, pb:13.8, roe:'40%',  margin:'35.7%', de:'0.38', cr:'1.77', dy:'0.72%'},
+  GOOGL:{pe:22.1, pb:6.2,  roe:'28%',  margin:'24.1%', de:'0.10', cr:'2.10', dy:'—'},
+  JPM:  {pe:11.2, pb:1.9,  roe:'17%',  margin:'28.0%', de:'1.20', cr:'—',    dy:'2.20%'},
+  RY:   {pe:12.8, pb:1.8,  roe:'14%',  margin:'26.4%', de:'1.40', cr:'—',    dy:'3.80%'},
+  TD:   {pe:11.1, pb:1.5,  roe:'13%',  margin:'23.5%', de:'1.55', cr:'—',    dy:'4.20%'},
+  CNR:  {pe:20.4, pb:5.1,  roe:'25%',  margin:'32.2%', de:'0.88', cr:'0.55', dy:'1.90%'},
+  SHOP: {pe:68.3, pb:8.9,  roe:'13%',  margin:'14.3%', de:'0.04', cr:'9.40', dy:'—'},
+};
+
+let active='AAPL', showMA=true, showVol=true, ctype='candle', cperiod=150;
+let priceData={}, mainChart=null, volChart=null, sectorChart=null, newsItems=[], tick=0;
+
+let seed=Date.now();
+function rng(){seed=(seed*16807)%2147483647;return(seed-1)/2147483646}
+function randn(){const u=rng()+1e-9,v=rng();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+function f2(n){return Number(n).toFixed(2)}
+function fv(v){return v>1e6?(v/1e6).toFixed(1)+'M':v>1e3?(v/1e3).toFixed(0)+'K':v}
+function clr(v){return v>0?'pos':v<0?'neg':'neu'}
+function arrow(v){return v>0?'▲':v<0?'▼':'—'}
+function tl(ts){return new Date(ts).toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})}
+
+function initPrices(){
+  Object.keys(TICKERS).forEach(t=>{
+    const cfg=TICKERS[t];const n=300;const bars=[];
+    let price=cfg.base*(0.95+rng()*0.1);
+    for(let i=0;i<n;i++){
+      const ret=cfg.vol*randn();
+      const o=price,c=+(price*(1+ret)).toFixed(2);
+      const h=+(Math.max(o,c)*(1+rng()*cfg.vol*0.5)).toFixed(2);
+      const l=+(Math.min(o,c)*(1-rng()*cfg.vol*0.5)).toFixed(2);
+      const v=Math.round((cfg.base*1e6)*(0.5+rng()));
+      bars.push({ts:Date.now()-(n-i)*1500,o,h,l,c,v});
+      price=c;
+    }
+    priceData[t]={bars,day0:bars[0].c};
+  });
+}
+
+function tickPrice(t){
+  const cfg=TICKERS[t],bars=priceData[t].bars,last=bars[bars.length-1];
+  const ret=cfg.vol*randn()*0.4;
+  const o=last.c,c=+Math.max(o*(1+ret),0.01).toFixed(2);
+  const h=+Math.max(o,c,last.h*(0.999+rng()*0.001)).toFixed(2);
+  const l=+Math.min(o,c,last.l*(0.999+rng()*0.001)).toFixed(2);
+  const v=Math.round(last.v*(0.8+rng()*0.4));
+  bars.push({ts:Date.now(),o,h,l,c,v});
+  if(bars.length>600)bars.shift();
+}
+
+function getDisp(t){
+  const bars=priceData[t].bars,last=bars[bars.length-1];
+  const chg=+(last.c-priceData[t].day0).toFixed(2);
+  const pct=+((chg/priceData[t].day0)*100).toFixed(2);
+  return{price:last.c,chg,pct,h:last.h,l:last.l,v:last.v};
+}
+
+function buildStrip(){
+  const el=document.getElementById('ticker-strip');
+  el.innerHTML=Object.keys(TICKERS).map(t=>{
+    const d=getDisp(t);
+    const cls=clr(d.pct);
+    return`<button class="tick-btn${t===active?' active':''}" onclick="setActive('${t}')">
+      ${t} <span class="tick-price ${cls}">${d.pct>=0?'+':''}${f2(d.pct)}%</span>
+    </button>`;
+  }).join('');
+}
+
+function buildKPIs(){
+  const t=active,cfg=TICKERS[t],d=getDisp(t);
+  const bars=priceData[t].bars,avg20=bars.slice(-20).reduce((s,b)=>s+b.v,0)/20;
+  const items=[
+    {lbl:'Price',val:`$${f2(d.price)}`,sub:`${arrow(d.chg)} $${f2(Math.abs(d.chg))} (${f2(Math.abs(d.pct))}%)`,cls:clr(d.chg)},
+    {lbl:'Day High',val:`$${f2(d.h)}`,sub:'Intraday high',cls:'neu'},
+    {lbl:'Day Low',val:`$${f2(d.l)}`,sub:'Intraday low',cls:'neu'},
+    {lbl:'Volume',val:fv(d.v),sub:`Avg ${fv(Math.round(avg20))}`,cls:'neu'},
+    {lbl:'Mkt Cap',val:`$${cfg.cap}B`,sub:cfg.sector,cls:'neu'},
+    {lbl:'P/E Ratio',val:RATIOS[t].pe,sub:'Trailing 12M',cls:'neu'},
+    {lbl:'ROE',val:RATIOS[t].roe,sub:'Return on equity',cls:'pos'},
+    {lbl:'Net Margin',val:RATIOS[t].margin,sub:'Profit margin',cls:'pos'},
+  ];
+  document.getElementById('kpi-row').innerHTML=items.map(i=>
+    `<div class="kpi flash">
+      <div class="kpi-lbl">${i.lbl}</div>
+      <div class="kpi-val ${i.cls}">${i.val}</div>
+      <div class="kpi-sub ${i.cls}">${i.sub}</div>
+    </div>`).join('');
+  document.getElementById('chart-title').textContent=`${t} — ${cfg.name}`;
+}
+
+function buildMA(prices,p=20){
+  return prices.map((_,i)=>{
+    if(i<p-1)return null;
+    return+(prices.slice(i-p+1,i+1).reduce((a,b)=>a+b,0)/p).toFixed(2);
+  });
+}
+
+const UP='#22c55e',DN='#ef4444',UPF='rgba(34,197,94,.14)',DNF='rgba(239,68,68,.14)',GRID='rgba(128,128,128,.1)',MA_C='#EF9F27';
+const BASE_OPTS={
+  responsive:true,maintainAspectRatio:false,animation:{duration:0},
+  plugins:{legend:{display:false},tooltip:{backgroundColor:'#1a2035',titleColor:'#e2e8f0',bodyColor:'#94a3b8',borderColor:'#1e2130',borderWidth:1}},
+  scales:{
+    x:{ticks:{color:'#64748b',font:{size:9},maxTicksLimit:8,maxRotation:0},grid:{color:GRID}},
+    y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:GRID},position:'right'},
+  },
+};
+
+function getSlice(){
+  return priceData[active].bars.slice(-Math.min(cperiod,priceData[active].bars.length));
+}
+
+function buildChart(){
+  if(mainChart)mainChart.destroy();
+  if(volChart)volChart.destroy();
+  const bars=getSlice(),labels=bars.map(b=>tl(b.ts));
+  const closes=bars.map(b=>b.c),ma20=buildMA(closes);
+  const vols=bars.map(b=>b.v),vc=bars.map(b=>b.c>=b.o?UP:DN);
+  let ds=[];
+  const mc=document.getElementById('main-chart').getContext('2d');
+  if(ctype==='candle'){
+    ds=[{label:'Price',data:bars.map(b=>({x:tl(b.ts),o:b.o,h:b.h,l:b.l,c:b.c})),type:'bar',
+      backgroundColor:bars.map(b=>b.c>=b.o?UPF:DNF),borderColor:bars.map(b=>b.c>=b.o?UP:DN),borderWidth:1,borderSkipped:false}];
+    if(showMA)ds.push({label:'MA20',data:ma20,type:'line',borderColor:MA_C,borderWidth:1.5,pointRadius:0,tension:.3});
+  }else if(ctype==='line'){
+    ds=[{label:'Close',data:closes,type:'line',borderColor:TICKERS[active].color,borderWidth:2,pointRadius:0,tension:.2}];
+    if(showMA)ds.push({label:'MA20',data:ma20,type:'line',borderColor:MA_C,borderWidth:1.2,pointRadius:0,tension:.3});
+  }else{
+    const g=mc.createLinearGradient(0,0,0,300);
+    g.addColorStop(0,TICKERS[active].color+'44');g.addColorStop(1,'transparent');
+    ds=[{label:'Close',data:closes,type:'line',borderColor:TICKERS[active].color,borderWidth:2,pointRadius:0,tension:.2,fill:true,backgroundColor:g}];
+    if(showMA)ds.push({label:'MA20',data:ma20,type:'line',borderColor:MA_C,borderWidth:1.2,pointRadius:0,tension:.3});
+  }
+  mainChart=new Chart(mc,{type:'bar',data:{labels,datasets:ds},options:{...BASE_OPTS,interaction:{intersect:false,mode:'index'}}});
+  if(showVol){
+    document.getElementById('vol-wrap').style.display='';
+    const vc2=document.getElementById('vol-chart').getContext('2d');
+    volChart=new Chart(vc2,{type:'bar',data:{labels,datasets:[{label:'Volume',data:vols,backgroundColor:vc,borderWidth:0}]},
+      options:{...BASE_OPTS,scales:{x:{...BASE_OPTS.scales.x,ticks:{display:false},grid:{display:false}},y:{...BASE_OPTS.scales.y,ticks:{color:'#64748b',font:{size:9},maxTicksLimit:3},grid:{color:GRID}}},
+        plugins:{...BASE_OPTS.plugins,tooltip:{...BASE_OPTS.plugins.tooltip,callbacks:{label:c=>`Vol: ${fv(c.raw)}`}}}}});
+  }else{document.getElementById('vol-wrap').style.display='none'}
+}
+
+function patchChart(){
+  if(!mainChart)return;
+  const bars=getSlice(),closes=bars.map(b=>b.c),ma20=buildMA(closes);
+  mainChart.data.labels=bars.map(b=>tl(b.ts));
+  if(ctype==='candle'){
+    mainChart.data.datasets[0].data=bars.map(b=>({x:tl(b.ts),o:b.o,h:b.h,l:b.l,c:b.c}));
+    mainChart.data.datasets[0].backgroundColor=bars.map(b=>b.c>=b.o?UPF:DNF);
+    mainChart.data.datasets[0].borderColor=bars.map(b=>b.c>=b.o?UP:DN);
+  }else{mainChart.data.datasets[0].data=closes}
+  if(showMA&&mainChart.data.datasets[1])mainChart.data.datasets[1].data=ma20;
+  mainChart.update('none');
+  if(showVol&&volChart){
+    const vols=bars.map(b=>b.v),vc=bars.map(b=>b.c>=b.o?UP:DN);
+    volChart.data.labels=bars.map(b=>tl(b.ts));
+    volChart.data.datasets[0].data=vols;volChart.data.datasets[0].backgroundColor=vc;
+    volChart.update('none');
+  }
+}
+
+function buildWatchlist(){
+  const rows=Object.keys(TICKERS).map(t=>{
+    const d=getDisp(t),bars=priceData[t].bars.slice(-20).map(b=>b.c);
+    const mn=Math.min(...bars),mx=Math.max(...bars),rn=mx-mn||1;
+    const pts=bars.map((v,i)=>`${(i/(bars.length-1))*60},${24-((v-mn)/rn)*22}`).join(' ');
+    const sc=d.chg>=0?UP:DN;
+    return`<tr>
+      <td><strong>${t}</strong> <span style="color:var(--muted);font-size:11px">${TICKERS[t].name}</span></td>
+      <td>$${f2(d.price)}</td>
+      <td class="${clr(d.chg)}">${d.chg>=0?'+':''}${f2(d.chg)}</td>
+      <td class="${clr(d.pct)}">${d.pct>=0?'+':''}${f2(d.pct)}%</td>
+      <td>${fv(d.v)}</td>
+      <td class="${clr(d.chg)}">${TICKERS[t].sector}</td>
+      <td><svg class="spark-svg" width="60" height="24"><polyline points="${pts}" fill="none" stroke="${sc}" stroke-width="1.5"/></svg></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('tab-watchlist').innerHTML=
+    `<table><thead><tr><th>Company</th><th>Price</th><th>Change</th><th>%</th><th>Volume</th><th>Sector</th><th>5-min Trend</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function buildOrderBook(){
+  const t=active,last=priceData[t].bars[priceData[t].bars.length-1].c;
+  const bids=[],asks=[];let bp=last,ap=last;
+  for(let i=0;i<8;i++){
+    bp=+(bp-(rng()*0.06+0.01)).toFixed(2);ap=+(ap+(rng()*0.06+0.01)).toFixed(2);
+    bids.push({p:bp,s:Math.round(100+rng()*900)});asks.push({p:ap,s:Math.round(100+rng()*900)});
+  }
+  const mx=Math.max(...bids.map(r=>r.s),...asks.map(r=>r.s));
+  const br=bids.map(r=>`<div class="book-row">
+    <div class="book-bar" style="background:${UP};width:${(r.s/mx)*100}%"></div>
+    <span style="color:${UP}">${f2(r.p)}</span><span style="color:var(--muted)">${r.s}</span>
+  </div>`).join('');
+  const ar=asks.map(r=>`<div class="book-row">
+    <div class="book-bar" style="background:${DN};width:${(r.s/mx)*100}%"></div>
+    <span style="color:${DN}">${f2(r.p)}</span><span style="color:var(--muted)">${r.s}</span>
+  </div>`).join('');
+  document.getElementById('tab-depth').innerHTML=`
+    <div class="spread-bar">Best Bid <span style="color:${UP}">$${f2(bids[0].p)}</span> &nbsp;/&nbsp; Best Ask <span style="color:${DN}">$${f2(asks[0].p)}</span> &nbsp;·&nbsp; Spread $${f2(asks[0].p-bids[0].p)}</div>
+    <div class="book-grid">
+      <div class="book-panel"><div class="book-hdr" style="color:${UP}">Bids (Buy orders)</div>${br}</div>
+      <div class="book-panel"><div class="book-hdr" style="color:${DN}">Asks (Sell orders)</div>${ar}</div>
+    </div>`;
+}
+
+function buildNews(){
+  if(!newsItems.length){
+    const ticks=Object.keys(TICKERS);
+    for(let i=0;i<14;i++){
+      const t=ticks[Math.floor(rng()*ticks.length)];
+      newsItems.push({t,text:NEWS[Math.floor(rng()*NEWS.length)](t),mins:Math.round(rng()*180),chg:(rng()*8-4).toFixed(2)});
+    }
+  }
+  document.getElementById('tab-news').innerHTML=newsItems.map(n=>`
+    <div class="news-item">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+        <span class="news-ticker">${n.t}</span>
+        <span class="news-meta">${n.mins}m ago</span>
+      </div>
+      <div class="news-text">${n.text}</div>
+      <div class="news-meta ${parseFloat(n.chg)>=0?'pos':'neg'}" style="margin-top:4px">${parseFloat(n.chg)>=0?'▲':'▼'} ${Math.abs(n.chg)}% after announcement</div>
+    </div>`).join('');
+}
+
+function buildRatios(){
+  const r=RATIOS[active],cfg=TICKERS[active];
+  const items=[
+    ['P/E Ratio',r.pe,'Price / Earnings — how much investors pay per $1 of earnings. Industry avg ~20-25x'],
+    ['P/B Ratio',r.pb,'Price / Book Value — market premium over accounting value of assets'],
+    ['ROE',r.roe,'Return on Equity — net income as % of shareholders equity. Higher = more efficient'],
+    ['Net Margin',r.margin,'Net profit margin — % of revenue retained as profit after all expenses'],
+    ['Debt/Equity',r.de,'Leverage ratio — total debt relative to equity. Lower = less financial risk'],
+    ['Current Ratio',r.cr,'Liquidity — can the company pay short-term obligations? >1 is healthy'],
+    ['Dividend Yield',r.dy,'Annual dividend as % of share price. Relevant for income investors'],
+  ];
+  document.getElementById('tab-ratios').innerHTML=`
+    <table><thead><tr><th>Ratio</th><th>Value</th><th>Interpretation</th></tr></thead>
+    <tbody>${items.map(i=>`<tr><td><strong>${i[0]}</strong></td><td style="color:var(--blue);font-weight:600">${i[1]}</td><td style="color:var(--muted)">${i[2]}</td></tr>`).join('')}
+    </tbody></table>`;
+}
+
+function buildSidePerf(){
+  const items=Object.keys(TICKERS).map(t=>{
+    const d=getDisp(t);return{t,pct:d.pct,cfg:TICKERS[t]};
+  }).sort((a,b)=>b.pct-a.pct);
+  const mx=Math.max(...items.map(i=>Math.abs(i.pct)));
+  document.getElementById('side-perf').innerHTML=items.map(i=>`
+    <div class="perf-row">
+      <span style="font-size:12px;font-weight:600">${i.t}</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="mini-bar-wrap"><div class="mini-bar" style="width:${(Math.abs(i.pct)/mx)*100}%;background:${i.pct>=0?UP:DN}"></div></div>
+        <span class="${clr(i.pct)}" style="font-size:12px;font-weight:600;min-width:52px;text-align:right">${i.pct>=0?'+':''}${f2(i.pct)}%</span>
+      </div>
+    </div>`).join('');
+}
+
+function buildSideMarket(){
+  const all=Object.keys(TICKERS).map(t=>getDisp(t));
+  const up=all.filter(d=>d.pct>0).length,dn=all.filter(d=>d.pct<0).length;
+  const avgPct=(all.reduce((s,d)=>s+d.pct,0)/all.length).toFixed(2);
+  document.getElementById('side-market').innerHTML=`
+    <div class="perf-row"><span style="font-size:12px">Advancing</span><span class="pos" style="font-weight:600">${up} stocks</span></div>
+    <div class="perf-row"><span style="font-size:12px">Declining</span><span class="neg" style="font-weight:600">${dn} stocks</span></div>
+    <div class="perf-row"><span style="font-size:12px">Portfolio avg</span><span class="${clr(+avgPct)}" style="font-weight:600">${+avgPct>=0?'+':''}${avgPct}%</span></div>
+    <div class="perf-row"><span style="font-size:12px">Data source</span><span style="color:var(--muted);font-size:12px">Yahoo Finance</span></div>`;
+}
+
+function buildSectorChart(){
+  if(sectorChart)sectorChart.destroy();
+  const sectors={};
+  Object.keys(TICKERS).forEach(t=>{
+    const s=TICKERS[t].sector;
+    sectors[s]=(sectors[s]||0)+TICKERS[t].cap;
+  });
+  const labels=Object.keys(sectors),data=Object.values(sectors);
+  const colors=['#378ADD','#1D9E75','#7F77DD','#EF9F27','#5DCAA5','#ED93B1'];
+  sectorChart=new Chart(document.getElementById('sector-chart').getContext('2d'),{
+    type:'doughnut',
+    data:{labels,datasets:[{data,backgroundColor:colors.slice(0,labels.length),borderColor:'#0f1117',borderWidth:2,hoverOffset:4}]},
+    options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:600},
+      plugins:{
+        legend:{position:'bottom',labels:{color:'#94a3b8',font:{size:10},padding:8,boxWidth:10}},
+        tooltip:{backgroundColor:'#1a2035',titleColor:'#e2e8f0',bodyColor:'#94a3b8',callbacks:{label:c=>`${c.label}: $${c.raw}B`}},
+      },
+      cutout:'65%',
+    },
+  });
+}
+
+function setActive(t){
+  active=t;
+  buildStrip();buildKPIs();buildChart();
+  renderTab(document.querySelector('.tab.on')?.dataset.tab||'watchlist');
+}
+
+function toggleMA(){showMA=!showMA;document.getElementById('ma-tog').classList.toggle('on',showMA);buildChart()}
+function toggleVol(){showVol=!showVol;document.getElementById('vol-tog').classList.toggle('on',showVol);buildChart()}
+
+document.getElementById('ctype').addEventListener('change',e=>{ctype=e.target.value;buildChart()});
+document.getElementById('cperiod').addEventListener('change',e=>{cperiod=+e.target.value;buildChart()});
+
+document.getElementById('tabs').addEventListener('click',e=>{
+  const btn=e.target.closest('.tab');if(!btn)return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');
+  ['watchlist','depth','news','ratios'].forEach(id=>{document.getElementById('tab-'+id).style.display=id===btn.dataset.tab?'':'none'});
+  renderTab(btn.dataset.tab);
+});
+
+function renderTab(tab){
+  if(tab==='watchlist')buildWatchlist();
+  else if(tab==='depth')buildOrderBook();
+  else if(tab==='news')buildNews();
+  else if(tab==='ratios')buildRatios();
+}
+
+function updateClock(){
+  const now=new Date(),h=now.getHours(),m=now.getMinutes();
+  const isOpen=(h>=9&&h<16)||(h===9&&m>=30);
+  document.getElementById('clock-nav').textContent=now.toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+' ET';
+  const el=document.getElementById('mkt-status');
+  el.textContent=isOpen?'MARKET OPEN':'MARKET CLOSED';
+  el.style.borderColor=isOpen?'rgba(34,197,94,.4)':'rgba(239,68,68,.4)';
+  el.style.color=isOpen?'#22c55e':'#ef4444';
+}
+
+function loop(){
+  Object.keys(TICKERS).forEach(t=>tickPrice(t));
+  buildStrip();buildKPIs();
+  if(tick%2===0)patchChart();
+  if(tick%3===0){buildSidePerf();buildSideMarket()}
+  if(tick%4===0)renderTab(document.querySelector('.tab.on')?.dataset.tab||'watchlist');
+  updateClock();tick++;
+}
+
+initPrices();
+buildStrip();buildKPIs();buildChart();buildSectorChart();
+buildSidePerf();buildSideMarket();buildNews();buildWatchlist();
+updateClock();
+setInterval(loop,1500);
+</script>
+</body>
+</html>

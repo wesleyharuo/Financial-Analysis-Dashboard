@@ -1,0 +1,56 @@
+/* ── Global ── */
+body { background-color: #0f1117; font-family: 'Inter', 'Segoe UI', sans-serif; }
+
+/* ── Navbar ── */
+.navbar { background: #0f1117 !important; border-bottom: 1px solid #1e2130; padding: 12px 24px; }
+.navbar-brand { color: #e2e8f0 !important; font-weight: 700; font-size: 18px; letter-spacing: -0.3px; }
+.nav-link { color: #94a3b8 !important; font-size: 13px; }
+.nav-link:hover { color: #e2e8f0 !important; }
+
+/* ── Cards ── */
+.kpi-card {
+    background: #161b27;
+    border: 1px solid #1e2130;
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: border-color 0.2s;
+}
+.kpi-card:hover { border-color: #3b82f6; }
+.kpi-label { font-size: 11px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+.kpi-value { font-size: 22px; font-weight: 700; color: #e2e8f0; margin-bottom: 2px; }
+.kpi-sub   { font-size: 12px; color: #64748b; }
+.kpi-pos   { color: #22c55e; }
+.kpi-neg   { color: #ef4444; }
+
+/* ── Section headers ── */
+.section-title { font-size: 13px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; margin: 24px 0 12px; }
+
+/* ── Dropdowns & Tabs ── */
+.Select-control { background: #161b27 !important; border: 1px solid #1e2130 !important; border-radius: 8px !important; color: #e2e8f0 !important; }
+.Select-menu-outer { background: #161b27 !important; border: 1px solid #1e2130 !important; }
+.Select-option { color: #94a3b8 !important; }
+.Select-option.is-selected { background: #1e293b !important; color: #e2e8f0 !important; }
+.Select-option.is-focused  { background: #1e293b !important; }
+.Select-value-label { color: #e2e8f0 !important; }
+
+/* ── Tab styling ── */
+.custom-tabs .tab { color: #64748b; border: none; background: transparent; padding: 8px 18px; font-size: 13px; }
+.custom-tabs .tab--selected { color: #3b82f6; border-bottom: 2px solid #3b82f6 !important; background: transparent; }
+.custom-tabs .tab-container { border-bottom: 1px solid #1e2130; }
+
+/* ── DataTable ── */
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background: #161b27 !important; color: #64748b !important;
+    font-size: 11px !important; text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 1px solid #1e2130 !important;
+}
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td {
+    background: #0f1117 !important; color: #e2e8f0 !important;
+    font-size: 13px !important; border-bottom: 1px solid #1a1f2e !important;
+}
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner tr:hover td {
+    background: #161b27 !important;
+}
+
+/* ── Footer ── */
+.footer { border-top: 1px solid #1e2130; padding: 16px 24px; font-size: 12px; color: #475569; margin-top: 40px; }

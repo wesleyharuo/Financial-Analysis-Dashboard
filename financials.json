@@ -1,0 +1,1162 @@
+{
+  "AAPL": {
+    "ticker": "AAPL",
+    "info": {
+      "name": "Apple Inc.",
+      "sector": "Technology",
+      "industry": "Technology",
+      "country": "USA",
+      "currency": "USD",
+      "market_cap": 2800000000000.0,
+      "pe_ratio": 28.5,
+      "forward_pe": 26.2,
+      "pb_ratio": 42.1,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 5.0,
+      "roe": 1.6,
+      "roa": 0.56,
+      "profit_margin": 0.253,
+      "gross_margin": 0.441,
+      "operating_margin": 0.298,
+      "current_ratio": 0.94,
+      "quick_ratio": 0.9,
+      "debt_to_equity": 199.0,
+      "revenue_growth": 0.063,
+      "earnings_growth": 0.076,
+      "dividend_yield": 0.005,
+      "beta": 1.24,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 420000000000,
+        "Gross Profit": 185784396975,
+        "Operating Income": 123858355893,
+        "EBITDA": 133767024364,
+        "Net Income": 107057429441,
+        "Basic EPS": 127.45,
+        "Diluted EPS": 124.9,
+        "Research And Development": 29400000000,
+        "Selling General And Administration": 50400000000
+      },
+      "2023": {
+        "Total Revenue": 386400000000,
+        "Gross Profit": 172005144850,
+        "Operating Income": 112900637609,
+        "EBITDA": 121932688618,
+        "Net Income": 96486199732,
+        "Basic EPS": 124.85,
+        "Diluted EPS": 122.36,
+        "Research And Development": 27048000000,
+        "Selling General And Administration": 46368000000
+      },
+      "2022": {
+        "Total Revenue": 355488000000,
+        "Gross Profit": 156970623666,
+        "Operating Income": 105600411069,
+        "EBITDA": 114048443954,
+        "Net Income": 89923353297,
+        "Basic EPS": 126.48,
+        "Diluted EPS": 123.95,
+        "Research And Development": 24884160000,
+        "Selling General And Administration": 42658560000
+      },
+      "2021": {
+        "Total Revenue": 327048960000,
+        "Gross Profit": 142998258120,
+        "Operating Income": 98317656535,
+        "EBITDA": 106183069058,
+        "Net Income": 83386958270,
+        "Basic EPS": 127.48,
+        "Diluted EPS": 124.93,
+        "Research And Development": 22893427200,
+        "Selling General And Administration": 39245875200
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 92400000000,
+        "Investing Cash Flow": -29400000000,
+        "Financing Cash Flow": -42000000000,
+        "Free Cash Flow": 74760000000,
+        "Capital Expenditure": -17640000000,
+        "End Cash Position": 73920000000
+      },
+      "2023": {
+        "Operating Cash Flow": 85932000000,
+        "Investing Cash Flow": -27342000000,
+        "Financing Cash Flow": -39060000000,
+        "Free Cash Flow": 69526800000,
+        "Capital Expenditure": -16405200000,
+        "End Cash Position": 68745600000
+      },
+      "2022": {
+        "Operating Cash Flow": 79916760000,
+        "Investing Cash Flow": -25428060000,
+        "Financing Cash Flow": -36325800000,
+        "Free Cash Flow": 64659924000,
+        "Capital Expenditure": -15256836000,
+        "End Cash Position": 63933408000
+      },
+      "2021": {
+        "Operating Cash Flow": 74322586800,
+        "Investing Cash Flow": -23648095800,
+        "Financing Cash Flow": -33782994000,
+        "Free Cash Flow": 60133729320,
+        "Capital Expenditure": -14188857480,
+        "End Cash Position": 59458069440
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 700317408000,
+        "Total Liabilities Net Minority Interest": 466097539104,
+        "Stockholders Equity": 234219868896,
+        "Current Assets": 245111092800,
+        "Current Liabilities": 186254629787,
+        "Long Term Debt": 256353646507
+      },
+      "2023": {
+        "Total Assets": 660676800000,
+        "Total Liabilities Net Minority Interest": 439714659532,
+        "Stockholders Equity": 220962140468,
+        "Current Assets": 231236880000,
+        "Current Liabilities": 175711914894,
+        "Long Term Debt": 241843062742
+      },
+      "2022": {
+        "Total Assets": 623280000000,
+        "Total Liabilities Net Minority Interest": 414825150502,
+        "Stockholders Equity": 208454849498,
+        "Current Assets": 218148000000,
+        "Current Liabilities": 165765957447,
+        "Long Term Debt": 228153832776
+      },
+      "2021": {
+        "Total Assets": 588000000000,
+        "Total Liabilities Net Minority Interest": 391344481605,
+        "Stockholders Equity": 196655518395,
+        "Current Assets": 205800000000,
+        "Current Liabilities": 156382978723,
+        "Long Term Debt": 215239464883
+      }
+    }
+  },
+  "MSFT": {
+    "ticker": "MSFT",
+    "info": {
+      "name": "Microsoft Corporation",
+      "sector": "Technology",
+      "industry": "Technology",
+      "country": "USA",
+      "currency": "USD",
+      "market_cap": 3100000000000.0,
+      "pe_ratio": 34.2,
+      "forward_pe": 31.5,
+      "pb_ratio": 13.8,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 8.5,
+      "roe": 0.4,
+      "roa": 0.14,
+      "profit_margin": 0.357,
+      "gross_margin": 0.691,
+      "operating_margin": 0.435,
+      "current_ratio": 1.77,
+      "quick_ratio": 1.75,
+      "debt_to_equity": 38.0,
+      "revenue_growth": 0.158,
+      "earnings_growth": 0.19,
+      "dividend_yield": 0.007,
+      "beta": 0.9,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 465000000000,
+        "Gross Profit": 325212946972,
+        "Operating Income": 204285380082,
+        "EBITDA": 220628210488,
+        "Net Income": 166351395826,
+        "Basic EPS": 178.87,
+        "Diluted EPS": 175.3,
+        "Research And Development": 32550000000,
+        "Selling General And Administration": 55800000000
+      },
+      "2023": {
+        "Total Revenue": 427800000000,
+        "Gross Profit": 297859835618,
+        "Operating Income": 185556023475,
+        "EBITDA": 200400505353,
+        "Net Income": 152711820574,
+        "Basic EPS": 178.49,
+        "Diluted EPS": 174.92,
+        "Research And Development": 29946000000,
+        "Selling General And Administration": 51336000000
+      },
+      "2022": {
+        "Total Revenue": 393576000000,
+        "Gross Profit": 270161655580,
+        "Operating Income": 172753369459,
+        "EBITDA": 186573639016,
+        "Net Income": 139532340283,
+        "Basic EPS": 177.26,
+        "Diluted EPS": 173.72,
+        "Research And Development": 27550320000,
+        "Selling General And Administration": 47229120000
+      },
+      "2021": {
+        "Total Revenue": 362089920000,
+        "Gross Profit": 253920057302,
+        "Operating Income": 157011647596,
+        "EBITDA": 169572579404,
+        "Net Income": 129292612061,
+        "Basic EPS": 178.54,
+        "Diluted EPS": 174.97,
+        "Research And Development": 25346294400,
+        "Selling General And Administration": 43450790400
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 102300000000,
+        "Investing Cash Flow": -32550000000,
+        "Financing Cash Flow": -46500000000,
+        "Free Cash Flow": 82770000000,
+        "Capital Expenditure": -19530000000,
+        "End Cash Position": 81840000000
+      },
+      "2023": {
+        "Operating Cash Flow": 95139000000,
+        "Investing Cash Flow": -30271500000,
+        "Financing Cash Flow": -43245000000,
+        "Free Cash Flow": 76976100000,
+        "Capital Expenditure": -18162900000,
+        "End Cash Position": 76111200000
+      },
+      "2022": {
+        "Operating Cash Flow": 88479270000,
+        "Investing Cash Flow": -28152495000,
+        "Financing Cash Flow": -40217850000,
+        "Free Cash Flow": 71587773000,
+        "Capital Expenditure": -16891497000,
+        "End Cash Position": 70783416000
+      },
+      "2021": {
+        "Operating Cash Flow": 82285721100,
+        "Investing Cash Flow": -26181820350,
+        "Financing Cash Flow": -37402600500,
+        "Free Cash Flow": 66576628890,
+        "Capital Expenditure": -15709092210,
+        "End Cash Position": 65828576880
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 775351416000,
+        "Total Liabilities Net Minority Interest": 213502563826,
+        "Stockholders Equity": 561848852174,
+        "Current Assets": 271372995600,
+        "Current Liabilities": 109512911864,
+        "Long Term Debt": 117426410104
+      },
+      "2023": {
+        "Total Assets": 731463600000,
+        "Total Liabilities Net Minority Interest": 201417513043,
+        "Stockholders Equity": 530046086957,
+        "Current Assets": 256012260000,
+        "Current Liabilities": 103314067797,
+        "Long Term Debt": 110779632174
+      },
+      "2022": {
+        "Total Assets": 690060000000,
+        "Total Liabilities Net Minority Interest": 190016521739,
+        "Stockholders Equity": 500043478261,
+        "Current Assets": 241521000000,
+        "Current Liabilities": 97466101695,
+        "Long Term Debt": 104509086957
+      },
+      "2021": {
+        "Total Assets": 651000000000,
+        "Total Liabilities Net Minority Interest": 179260869565,
+        "Stockholders Equity": 471739130435,
+        "Current Assets": 227850000000,
+        "Current Liabilities": 91949152542,
+        "Long Term Debt": 98593478261
+      }
+    }
+  },
+  "GOOGL": {
+    "ticker": "GOOGL",
+    "info": {
+      "name": "Alphabet Inc.",
+      "sector": "Communication",
+      "industry": "Communication",
+      "country": "USA",
+      "currency": "USD",
+      "market_cap": 2100000000000.0,
+      "pe_ratio": 22.1,
+      "forward_pe": 20.3,
+      "pb_ratio": 6.2,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 3.7,
+      "roe": 0.28,
+      "roa": 0.098,
+      "profit_margin": 0.241,
+      "gross_margin": 0.555,
+      "operating_margin": 0.274,
+      "current_ratio": 2.1,
+      "quick_ratio": 2.08,
+      "debt_to_equity": 10.0,
+      "revenue_growth": 0.084,
+      "earnings_growth": 0.101,
+      "dividend_yield": 0.0,
+      "beta": 1.06,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 315000000000,
+        "Gross Profit": 177851787901,
+        "Operating Income": 86901673975,
+        "EBITDA": 93853807893,
+        "Net Income": 74904497698,
+        "Basic EPS": 118.9,
+        "Diluted EPS": 116.52,
+        "Research And Development": 22050000000,
+        "Selling General And Administration": 37800000000
+      },
+      "2023": {
+        "Total Revenue": 289800000000,
+        "Gross Profit": 158777718725,
+        "Operating Income": 78808370366,
+        "EBITDA": 85113039996,
+        "Net Income": 69952085728,
+        "Basic EPS": 120.69,
+        "Diluted EPS": 118.28,
+        "Research And Development": 20286000000,
+        "Selling General And Administration": 34776000000
+      },
+      "2022": {
+        "Total Revenue": 266616000000,
+        "Gross Profit": 148306211652,
+        "Operating Income": 72123774263,
+        "EBITDA": 77893676204,
+        "Net Income": 63693670443,
+        "Basic EPS": 119.45,
+        "Diluted EPS": 117.06,
+        "Research And Development": 18663120000,
+        "Selling General And Administration": 31993920000
+      },
+      "2021": {
+        "Total Revenue": 245286720000,
+        "Gross Profit": 135029424979,
+        "Operating Income": 67087083951,
+        "EBITDA": 72454050667,
+        "Net Income": 60287334368,
+        "Basic EPS": 122.89,
+        "Diluted EPS": 120.43,
+        "Research And Development": 17170070400,
+        "Selling General And Administration": 29434406400
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 69300000000,
+        "Investing Cash Flow": -22050000000,
+        "Financing Cash Flow": -31500000000,
+        "Free Cash Flow": 56070000000,
+        "Capital Expenditure": -13230000000,
+        "End Cash Position": 55440000000
+      },
+      "2023": {
+        "Operating Cash Flow": 64449000000,
+        "Investing Cash Flow": -20506500000,
+        "Financing Cash Flow": -29295000000,
+        "Free Cash Flow": 52145100000,
+        "Capital Expenditure": -12303900000,
+        "End Cash Position": 51559200000
+      },
+      "2022": {
+        "Operating Cash Flow": 59937570000,
+        "Investing Cash Flow": -19071045000,
+        "Financing Cash Flow": -27244350000,
+        "Free Cash Flow": 48494943000,
+        "Capital Expenditure": -11442627000,
+        "End Cash Position": 47950056000
+      },
+      "2021": {
+        "Operating Cash Flow": 55741940100,
+        "Investing Cash Flow": -17736071850,
+        "Financing Cash Flow": -25337245500,
+        "Free Cash Flow": 45100296990,
+        "Capital Expenditure": -10641643110,
+        "End Cash Position": 44593552080
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 525238056000,
+        "Total Liabilities Net Minority Interest": 47748914182,
+        "Stockholders Equity": 477489141818,
+        "Current Assets": 183833319600,
+        "Current Liabilities": 62528340000,
+        "Long Term Debt": 26261902800
+      },
+      "2023": {
+        "Total Assets": 495507600000,
+        "Total Liabilities Net Minority Interest": 45046145455,
+        "Stockholders Equity": 450461454545,
+        "Current Assets": 173427660000,
+        "Current Liabilities": 58989000000,
+        "Long Term Debt": 24775380000
+      },
+      "2022": {
+        "Total Assets": 467460000000,
+        "Total Liabilities Net Minority Interest": 42496363636,
+        "Stockholders Equity": 424963636364,
+        "Current Assets": 163611000000,
+        "Current Liabilities": 55650000000,
+        "Long Term Debt": 23373000000
+      },
+      "2021": {
+        "Total Assets": 441000000000,
+        "Total Liabilities Net Minority Interest": 40090909091,
+        "Stockholders Equity": 400909090909,
+        "Current Assets": 154350000000,
+        "Current Liabilities": 52500000000,
+        "Long Term Debt": 22050000000
+      }
+    }
+  },
+  "JPM": {
+    "ticker": "JPM",
+    "info": {
+      "name": "JPMorgan Chase & Co.",
+      "sector": "Financial",
+      "industry": "Financial",
+      "country": "USA",
+      "currency": "USD",
+      "market_cap": 560000000000.0,
+      "pe_ratio": 11.2,
+      "forward_pe": 10.3,
+      "pb_ratio": 1.9,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 2.2,
+      "roe": 0.17,
+      "roa": 0.059,
+      "profit_margin": 0.28,
+      "gross_margin": 0.6,
+      "operating_margin": 0.32,
+      "current_ratio": null,
+      "quick_ratio": null,
+      "debt_to_equity": 120.0,
+      "revenue_growth": 0.212,
+      "earnings_growth": 0.254,
+      "dividend_yield": 0.022,
+      "beta": 1.1,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 84000000000,
+        "Gross Profit": 50555589226,
+        "Operating Income": 26596647332,
+        "EBITDA": 28724379119,
+        "Net Income": 23800604775,
+        "Basic EPS": 141.67,
+        "Diluted EPS": 138.84,
+        "Research And Development": 5880000000,
+        "Selling General And Administration": 10080000000
+      },
+      "2023": {
+        "Total Revenue": 77280000000,
+        "Gross Profit": 46271718582,
+        "Operating Income": 25143962155,
+        "EBITDA": 27155479127,
+        "Net Income": 21729372289,
+        "Basic EPS": 140.59,
+        "Diluted EPS": 137.78,
+        "Research And Development": 5409600000,
+        "Selling General And Administration": 9273600000
+      },
+      "2022": {
+        "Total Revenue": 71097600000,
+        "Gross Profit": 43499331692,
+        "Operating Income": 23018620215,
+        "EBITDA": 24860109833,
+        "Net Income": 19952555384,
+        "Basic EPS": 140.32,
+        "Diluted EPS": 137.51,
+        "Research And Development": 4976832000,
+        "Selling General And Administration": 8531712000
+      },
+      "2021": {
+        "Total Revenue": 65409792000,
+        "Gross Profit": 38962085582,
+        "Operating Income": 20784287416,
+        "EBITDA": 22447030409,
+        "Net Income": 18412365613,
+        "Basic EPS": 140.75,
+        "Diluted EPS": 137.93,
+        "Research And Development": 4578685440,
+        "Selling General And Administration": 7849175040
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 18480000000,
+        "Investing Cash Flow": -5880000000,
+        "Financing Cash Flow": -8400000000,
+        "Free Cash Flow": 14952000000,
+        "Capital Expenditure": -3528000000,
+        "End Cash Position": 14784000000
+      },
+      "2023": {
+        "Operating Cash Flow": 17186400000,
+        "Investing Cash Flow": -5468400000,
+        "Financing Cash Flow": -7812000000,
+        "Free Cash Flow": 13905360000,
+        "Capital Expenditure": -3281040000,
+        "End Cash Position": 13749120000
+      },
+      "2022": {
+        "Operating Cash Flow": 15983352000,
+        "Investing Cash Flow": -5085612000,
+        "Financing Cash Flow": -7265160000,
+        "Free Cash Flow": 12931984800,
+        "Capital Expenditure": -3051367200,
+        "End Cash Position": 12786681600
+      },
+      "2021": {
+        "Operating Cash Flow": 14864517360,
+        "Investing Cash Flow": -4729619160,
+        "Financing Cash Flow": -6756598800,
+        "Free Cash Flow": 12026745864,
+        "Capital Expenditure": -2837771496,
+        "End Cash Position": 11891613888
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 140063481600,
+        "Total Liabilities Net Minority Interest": 76398262691,
+        "Stockholders Equity": 63665218909,
+        "Current Assets": 49022218560,
+        "Current Liabilities": 29179892000,
+        "Long Term Debt": 42019044480
+      },
+      "2023": {
+        "Total Assets": 132135360000,
+        "Total Liabilities Net Minority Interest": 72073832727,
+        "Stockholders Equity": 60061527273,
+        "Current Assets": 46247376000,
+        "Current Liabilities": 27528200000,
+        "Long Term Debt": 39640608000
+      },
+      "2022": {
+        "Total Assets": 124656000000,
+        "Total Liabilities Net Minority Interest": 67994181818,
+        "Stockholders Equity": 56661818182,
+        "Current Assets": 43629600000,
+        "Current Liabilities": 25970000000,
+        "Long Term Debt": 37396800000
+      },
+      "2021": {
+        "Total Assets": 117600000000,
+        "Total Liabilities Net Minority Interest": 64145454545,
+        "Stockholders Equity": 53454545455,
+        "Current Assets": 41160000000,
+        "Current Liabilities": 24500000000,
+        "Long Term Debt": 35280000000
+      }
+    }
+  },
+  "RY": {
+    "ticker": "RY",
+    "info": {
+      "name": "Royal Bank of Canada",
+      "sector": "Financial",
+      "industry": "Financial",
+      "country": "CAN",
+      "currency": "CAD",
+      "market_cap": 210000000000.0,
+      "pe_ratio": 12.8,
+      "forward_pe": 11.8,
+      "pb_ratio": 1.8,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 2.4,
+      "roe": 0.14,
+      "roa": 0.049,
+      "profit_margin": 0.264,
+      "gross_margin": 0.62,
+      "operating_margin": 0.31,
+      "current_ratio": null,
+      "quick_ratio": null,
+      "debt_to_equity": 140.0,
+      "revenue_growth": 0.073,
+      "earnings_growth": 0.088,
+      "dividend_yield": 0.038,
+      "beta": 0.82,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 31500000000,
+        "Gross Profit": 19657476372,
+        "Operating Income": 9578677806,
+        "EBITDA": 10344972030,
+        "Net Income": 8385208107,
+        "Basic EPS": 133.1,
+        "Diluted EPS": 130.44,
+        "Research And Development": 2205000000,
+        "Selling General And Administration": 3780000000
+      },
+      "2023": {
+        "Total Revenue": 28980000000,
+        "Gross Profit": 17897203208,
+        "Operating Income": 8984077164,
+        "EBITDA": 9702803337,
+        "Net Income": 7610507213,
+        "Basic EPS": 131.31,
+        "Diluted EPS": 128.68,
+        "Research And Development": 2028600000,
+        "Selling General And Administration": 3477600000
+      },
+      "2022": {
+        "Total Revenue": 26661600000,
+        "Gross Profit": 16766719645,
+        "Operating Income": 8285676974,
+        "EBITDA": 8948531132,
+        "Net Income": 7016016349,
+        "Basic EPS": 131.58,
+        "Diluted EPS": 128.94,
+        "Research And Development": 1866312000,
+        "Selling General And Administration": 3199392000
+      },
+      "2021": {
+        "Total Revenue": 24528672000,
+        "Gross Profit": 15154564189,
+        "Operating Income": 7592622617,
+        "EBITDA": 8200032426,
+        "Net Income": 6630784933,
+        "Basic EPS": 135.16,
+        "Diluted EPS": 132.46,
+        "Research And Development": 1717007040,
+        "Selling General And Administration": 2943440640
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 6930000000,
+        "Investing Cash Flow": -2205000000,
+        "Financing Cash Flow": -3150000000,
+        "Free Cash Flow": 5607000000,
+        "Capital Expenditure": -1323000000,
+        "End Cash Position": 5544000000
+      },
+      "2023": {
+        "Operating Cash Flow": 6444900000,
+        "Investing Cash Flow": -2050650000,
+        "Financing Cash Flow": -2929500000,
+        "Free Cash Flow": 5214510000,
+        "Capital Expenditure": -1230390000,
+        "End Cash Position": 5155920000
+      },
+      "2022": {
+        "Operating Cash Flow": 5993757000,
+        "Investing Cash Flow": -1907104500,
+        "Financing Cash Flow": -2724435000,
+        "Free Cash Flow": 4849494300,
+        "Capital Expenditure": -1144262700,
+        "End Cash Position": 4795005600
+      },
+      "2021": {
+        "Operating Cash Flow": 5574194010,
+        "Investing Cash Flow": -1773607185,
+        "Financing Cash Flow": -2533724550,
+        "Free Cash Flow": 4510029699,
+        "Capital Expenditure": -1064164311,
+        "End Cash Position": 4459355208
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 52523805600,
+        "Total Liabilities Net Minority Interest": 30638886600,
+        "Stockholders Equity": 21884919000,
+        "Current Assets": 18383331960,
+        "Current Liabilities": 10942459500,
+        "Long Term Debt": 16851387630
+      },
+      "2023": {
+        "Total Assets": 49550760000,
+        "Total Liabilities Net Minority Interest": 28904610000,
+        "Stockholders Equity": 20646150000,
+        "Current Assets": 17342766000,
+        "Current Liabilities": 10323075000,
+        "Long Term Debt": 15897535500
+      },
+      "2022": {
+        "Total Assets": 46746000000,
+        "Total Liabilities Net Minority Interest": 27268500000,
+        "Stockholders Equity": 19477500000,
+        "Current Assets": 16361100000,
+        "Current Liabilities": 9738750000,
+        "Long Term Debt": 14997675000
+      },
+      "2021": {
+        "Total Assets": 44100000000,
+        "Total Liabilities Net Minority Interest": 25725000000,
+        "Stockholders Equity": 18375000000,
+        "Current Assets": 15435000000,
+        "Current Liabilities": 9187500000,
+        "Long Term Debt": 14148750000
+      }
+    }
+  },
+  "TD": {
+    "ticker": "TD",
+    "info": {
+      "name": "Toronto-Dominion Bank",
+      "sector": "Financial",
+      "industry": "Financial",
+      "country": "CAN",
+      "currency": "CAD",
+      "market_cap": 150000000000.0,
+      "pe_ratio": 11.1,
+      "forward_pe": 10.2,
+      "pb_ratio": 1.5,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 1.8,
+      "roe": 0.13,
+      "roa": 0.045,
+      "profit_margin": 0.235,
+      "gross_margin": 0.59,
+      "operating_margin": 0.285,
+      "current_ratio": null,
+      "quick_ratio": null,
+      "debt_to_equity": 155.0,
+      "revenue_growth": 0.048,
+      "earnings_growth": 0.058,
+      "dividend_yield": 0.042,
+      "beta": 0.85,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 22500000000,
+        "Gross Profit": 13051684245,
+        "Operating Income": 6330218068,
+        "EBITDA": 6836635514,
+        "Net Income": 5285797299,
+        "Basic EPS": 117.46,
+        "Diluted EPS": 115.11,
+        "Research And Development": 1575000000,
+        "Selling General And Administration": 2700000000
+      },
+      "2023": {
+        "Total Revenue": 20700000000,
+        "Gross Profit": 12021926445,
+        "Operating Income": 5877802336,
+        "EBITDA": 6348026523,
+        "Net Income": 4933639274,
+        "Basic EPS": 119.17,
+        "Diluted EPS": 116.79,
+        "Research And Development": 1449000000,
+        "Selling General And Administration": 2484000000
+      },
+      "2022": {
+        "Total Revenue": 19044000000,
+        "Gross Profit": 11274480595,
+        "Operating Income": 5430018645,
+        "EBITDA": 5864420137,
+        "Net Income": 4428761887,
+        "Basic EPS": 116.28,
+        "Diluted EPS": 113.95,
+        "Research And Development": 1333080000,
+        "Selling General And Administration": 2285280000
+      },
+      "2021": {
+        "Total Revenue": 17520480000,
+        "Gross Profit": 10355869573,
+        "Operating Income": 4980427819,
+        "EBITDA": 5378862045,
+        "Net Income": 4127138221,
+        "Basic EPS": 117.78,
+        "Diluted EPS": 115.42,
+        "Research And Development": 1226433600,
+        "Selling General And Administration": 2102457600
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 4950000000,
+        "Investing Cash Flow": -1575000000,
+        "Financing Cash Flow": -2250000000,
+        "Free Cash Flow": 4005000000,
+        "Capital Expenditure": -945000000,
+        "End Cash Position": 3960000000
+      },
+      "2023": {
+        "Operating Cash Flow": 4603500000,
+        "Investing Cash Flow": -1464750000,
+        "Financing Cash Flow": -2092500000,
+        "Free Cash Flow": 3724650000,
+        "Capital Expenditure": -878850000,
+        "End Cash Position": 3682800000
+      },
+      "2022": {
+        "Operating Cash Flow": 4281255000,
+        "Investing Cash Flow": -1362217500,
+        "Financing Cash Flow": -1946025000,
+        "Free Cash Flow": 3463924500,
+        "Capital Expenditure": -817330500,
+        "End Cash Position": 3425004000
+      },
+      "2021": {
+        "Operating Cash Flow": 3981567150,
+        "Investing Cash Flow": -1266862275,
+        "Financing Cash Flow": -1809803250,
+        "Free Cash Flow": 3221449785,
+        "Capital Expenditure": -760117365,
+        "End Cash Position": 3185253720
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 37517004000,
+        "Total Liabilities Net Minority Interest": 22804453412,
+        "Stockholders Equity": 14712550588,
+        "Current Assets": 13130951400,
+        "Current Liabilities": 7816042500,
+        "Long Term Debt": 12542449376
+      },
+      "2023": {
+        "Total Assets": 35393400000,
+        "Total Liabilities Net Minority Interest": 21513635294,
+        "Stockholders Equity": 13879764706,
+        "Current Assets": 12387690000,
+        "Current Liabilities": 7373625000,
+        "Long Term Debt": 11832499412
+      },
+      "2022": {
+        "Total Assets": 33390000000,
+        "Total Liabilities Net Minority Interest": 20295882353,
+        "Stockholders Equity": 13094117647,
+        "Current Assets": 11686500000,
+        "Current Liabilities": 6956250000,
+        "Long Term Debt": 11162735294
+      },
+      "2021": {
+        "Total Assets": 31500000000,
+        "Total Liabilities Net Minority Interest": 19147058824,
+        "Stockholders Equity": 12352941176,
+        "Current Assets": 11025000000,
+        "Current Liabilities": 6562500000,
+        "Long Term Debt": 10530882353
+      }
+    }
+  },
+  "CNR": {
+    "ticker": "CNR",
+    "info": {
+      "name": "Canadian National Railway",
+      "sector": "Industrials",
+      "industry": "Industrials",
+      "country": "CAN",
+      "currency": "CAD",
+      "market_cap": 96000000000.0,
+      "pe_ratio": 20.4,
+      "forward_pe": 18.8,
+      "pb_ratio": 5.1,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 4.6,
+      "roe": 0.25,
+      "roa": 0.087,
+      "profit_margin": 0.322,
+      "gross_margin": 0.56,
+      "operating_margin": 0.398,
+      "current_ratio": 0.55,
+      "quick_ratio": 0.5,
+      "debt_to_equity": 88.0,
+      "revenue_growth": 0.021,
+      "earnings_growth": 0.025,
+      "dividend_yield": 0.019,
+      "beta": 0.74,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 14400000000,
+        "Gross Profit": 8041533820,
+        "Operating Income": 5802260905,
+        "EBITDA": 6266441778,
+        "Net Income": 4622506742,
+        "Basic EPS": 160.5,
+        "Diluted EPS": 157.29,
+        "Research And Development": 1008000000,
+        "Selling General And Administration": 1728000000
+      },
+      "2023": {
+        "Total Revenue": 13248000000,
+        "Gross Profit": 7443027370,
+        "Operating Income": 5242742742,
+        "EBITDA": 5662162161,
+        "Net Income": 4265132063,
+        "Basic EPS": 160.97,
+        "Diluted EPS": 157.75,
+        "Research And Development": 927360000,
+        "Selling General And Administration": 1589760000
+      },
+      "2022": {
+        "Total Revenue": 12188160000,
+        "Gross Profit": 6806663301,
+        "Operating Income": 4814414781,
+        "EBITDA": 5199567964,
+        "Net Income": 3934118871,
+        "Basic EPS": 161.39,
+        "Diluted EPS": 158.16,
+        "Research And Development": 853171200,
+        "Selling General And Administration": 1462579200
+      },
+      "2021": {
+        "Total Revenue": 11213107200,
+        "Gross Profit": 6239240469,
+        "Operating Income": 4488521911,
+        "EBITDA": 4847603664,
+        "Net Income": 3599624581,
+        "Basic EPS": 160.51,
+        "Diluted EPS": 157.3,
+        "Research And Development": 784917504,
+        "Selling General And Administration": 1345572864
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 3168000000,
+        "Investing Cash Flow": -1008000000,
+        "Financing Cash Flow": -1440000000,
+        "Free Cash Flow": 2563200000,
+        "Capital Expenditure": -604800000,
+        "End Cash Position": 2534400000
+      },
+      "2023": {
+        "Operating Cash Flow": 2946240000,
+        "Investing Cash Flow": -937440000,
+        "Financing Cash Flow": -1339200000,
+        "Free Cash Flow": 2383776000,
+        "Capital Expenditure": -562464000,
+        "End Cash Position": 2356992000
+      },
+      "2022": {
+        "Operating Cash Flow": 2740003200,
+        "Investing Cash Flow": -871819200,
+        "Financing Cash Flow": -1245456000,
+        "Free Cash Flow": 2216911680,
+        "Capital Expenditure": -523091520,
+        "End Cash Position": 2192002560
+      },
+      "2021": {
+        "Operating Cash Flow": 2548202976,
+        "Investing Cash Flow": -810791856,
+        "Financing Cash Flow": -1158274080,
+        "Free Cash Flow": 2061727862,
+        "Capital Expenditure": -486475114,
+        "End Cash Position": 2038562381
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 24010882560,
+        "Total Liabilities Net Minority Interest": 11239136517,
+        "Stockholders Equity": 12771746043,
+        "Current Assets": 8403808896,
+        "Current Liabilities": 10914037527,
+        "Long Term Debt": 6181525085
+      },
+      "2023": {
+        "Total Assets": 22651776000,
+        "Total Liabilities Net Minority Interest": 10602958979,
+        "Stockholders Equity": 12048817021,
+        "Current Assets": 7928121600,
+        "Current Liabilities": 10296261818,
+        "Long Term Debt": 5831627438
+      },
+      "2022": {
+        "Total Assets": 21369600000,
+        "Total Liabilities Net Minority Interest": 10002791489,
+        "Stockholders Equity": 11366808511,
+        "Current Assets": 7479360000,
+        "Current Liabilities": 9713454545,
+        "Long Term Debt": 5501535319
+      },
+      "2021": {
+        "Total Assets": 20160000000,
+        "Total Liabilities Net Minority Interest": 9436595745,
+        "Stockholders Equity": 10723404255,
+        "Current Assets": 7056000000,
+        "Current Liabilities": 9163636364,
+        "Long Term Debt": 5190127660
+      }
+    }
+  },
+  "SHOP": {
+    "ticker": "SHOP",
+    "info": {
+      "name": "Shopify Inc.",
+      "sector": "Technology",
+      "industry": "Technology",
+      "country": "CAN",
+      "currency": "USD",
+      "market_cap": 88000000000.0,
+      "pe_ratio": 68.3,
+      "forward_pe": 62.8,
+      "pb_ratio": 8.9,
+      "ps_ratio": 6.67,
+      "ev_ebitda": 6.8,
+      "roe": 0.13,
+      "roa": 0.045,
+      "profit_margin": 0.143,
+      "gross_margin": 0.497,
+      "operating_margin": 0.104,
+      "current_ratio": 9.4,
+      "quick_ratio": 9.35,
+      "debt_to_equity": 4.0,
+      "revenue_growth": 0.262,
+      "earnings_growth": 0.314,
+      "dividend_yield": 0.0,
+      "beta": 1.68,
+      "fiftyTwoWeekHigh": null,
+      "fiftyTwoWeekLow": null,
+      "targetMeanPrice": null
+    },
+    "income_statement": {
+      "2024": {
+        "Total Revenue": 13200000000,
+        "Gross Profit": 6715251063,
+        "Operating Income": 1365403435,
+        "EBITDA": 1474635709,
+        "Net Income": 1907397045,
+        "Basic EPS": 72.25,
+        "Diluted EPS": 70.8,
+        "Research And Development": 924000000,
+        "Selling General And Administration": 1584000000
+      },
+      "2023": {
+        "Total Revenue": 12144000000,
+        "Gross Profit": 6096464273,
+        "Operating Income": 1260514593,
+        "EBITDA": 1361355760,
+        "Net Income": 1738655932,
+        "Basic EPS": 71.58,
+        "Diluted EPS": 70.15,
+        "Research And Development": 850080000,
+        "Selling General And Administration": 1457280000
+      },
+      "2022": {
+        "Total Revenue": 11172480000,
+        "Gross Profit": 5552749042,
+        "Operating Income": 1153295875,
+        "EBITDA": 1245559545,
+        "Net Income": 1584399650,
+        "Basic EPS": 70.91,
+        "Diluted EPS": 69.49,
+        "Research And Development": 782073600,
+        "Selling General And Administration": 1340697600
+      },
+      "2021": {
+        "Total Revenue": 10278681600,
+        "Gross Profit": 5087568420,
+        "Operating Income": 1056813511,
+        "EBITDA": 1141358592,
+        "Net Income": 1462496472,
+        "Basic EPS": 71.14,
+        "Diluted EPS": 69.72,
+        "Research And Development": 719507712,
+        "Selling General And Administration": 1233441792
+      }
+    },
+    "cash_flow": {
+      "2024": {
+        "Operating Cash Flow": 2904000000,
+        "Investing Cash Flow": -924000000,
+        "Financing Cash Flow": -1320000000,
+        "Free Cash Flow": 2349600000,
+        "Capital Expenditure": -554400000,
+        "End Cash Position": 2323200000
+      },
+      "2023": {
+        "Operating Cash Flow": 2700720000,
+        "Investing Cash Flow": -859320000,
+        "Financing Cash Flow": -1227600000,
+        "Free Cash Flow": 2185128000,
+        "Capital Expenditure": -515592000,
+        "End Cash Position": 2160576000
+      },
+      "2022": {
+        "Operating Cash Flow": 2511669600,
+        "Investing Cash Flow": -799167600,
+        "Financing Cash Flow": -1141668000,
+        "Free Cash Flow": 2032169040,
+        "Capital Expenditure": -479500560,
+        "End Cash Position": 2009335680
+      },
+      "2021": {
+        "Operating Cash Flow": 2335852728,
+        "Investing Cash Flow": -743225868,
+        "Financing Cash Flow": -1061751240,
+        "Free Cash Flow": 1889917207,
+        "Capital Expenditure": -445935521,
+        "End Cash Position": 1868682182
+      }
+    },
+    "balance_sheet": {
+      "2024": {
+        "Total Assets": 22009975680,
+        "Total Liabilities Net Minority Interest": 846537526,
+        "Stockholders Equity": 21163438154,
+        "Current Assets": 7703491488,
+        "Current Liabilities": 585371694,
+        "Long Term Debt": 465595639
+      },
+      "2023": {
+        "Total Assets": 20764128000,
+        "Total Liabilities Net Minority Interest": 798620308,
+        "Stockholders Equity": 19965507692,
+        "Current Assets": 7267444800,
+        "Current Liabilities": 552237447,
+        "Long Term Debt": 439241169
+      },
+      "2022": {
+        "Total Assets": 19588800000,
+        "Total Liabilities Net Minority Interest": 753415385,
+        "Stockholders Equity": 18835384615,
+        "Current Assets": 6856080000,
+        "Current Liabilities": 520978723,
+        "Long Term Debt": 414378462
+      },
+      "2021": {
+        "Total Assets": 18480000000,
+        "Total Liabilities Net Minority Interest": 710769231,
+        "Stockholders Equity": 17769230769,
+        "Current Assets": 6468000000,
+        "Current Liabilities": 491489362,
+        "Long Term Debt": 390923077
+      }
+    }
+  }
+}

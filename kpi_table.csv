@@ -1,0 +1,9 @@
+Ticker,Company,Sector,Country,Currency,Market Cap ($B),P/E Ratio,Forward P/E,P/B Ratio,P/S Ratio,EV/EBITDA,ROE (%),ROA (%),Net Margin (%),Gross Margin (%),Op. Margin (%),Current Ratio,Quick Ratio,Debt/Equity,Revenue Growth (%),Earnings Growth (%),Dividend Yield (%),Beta,52W High,52W Low,Analyst Target
+AAPL,Apple Inc.,Technology,USA,USD,2800.0,28.5,26.2,42.1,6.67,5.0,160.0,56.0,25.3,44.1,29.8,0.94,0.9,1.99,6.3,7.6,0.5,1.24,,,
+MSFT,Microsoft Corporation,Technology,USA,USD,3100.0,34.2,31.5,13.8,6.67,8.5,40.0,14.0,35.7,69.1,43.5,1.77,1.75,0.38,15.8,19.0,0.7,0.9,,,
+GOOGL,Alphabet Inc.,Communication,USA,USD,2100.0,22.1,20.3,6.2,6.67,3.7,28.0,9.8,24.1,55.5,27.4,2.1,2.08,0.1,8.4,10.1,0.0,1.06,,,
+JPM,JPMorgan Chase & Co.,Financial,USA,USD,560.0,11.2,10.3,1.9,6.67,2.2,17.0,5.9,28.0,60.0,32.0,,,1.2,21.2,25.4,2.2,1.1,,,
+RY,Royal Bank of Canada,Financial,CAN,CAD,210.0,12.8,11.8,1.8,6.67,2.4,14.0,4.9,26.4,62.0,31.0,,,1.4,7.3,8.8,3.8,0.82,,,
+TD,Toronto-Dominion Bank,Financial,CAN,CAD,150.0,11.1,10.2,1.5,6.67,1.8,13.0,4.5,23.5,59.0,28.5,,,1.55,4.8,5.8,4.2,0.85,,,
+CNR,Canadian National Railway,Industrials,CAN,CAD,96.0,20.4,18.8,5.1,6.67,4.6,25.0,8.7,32.2,56.0,39.8,0.55,0.5,0.88,2.1,2.5,1.9,0.74,,,
+SHOP,Shopify Inc.,Technology,CAN,USD,88.0,68.3,62.8,8.9,6.67,6.8,13.0,4.5,14.3,49.7,10.4,9.4,9.35,0.04,26.2,31.4,0.0,1.68,,,
