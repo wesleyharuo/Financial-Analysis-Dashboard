@@ -1,8 +1,13 @@
+
 # Financial Analysis Dashboard
 
 > Interactive financial analytics platform built with **Python · Plotly Dash · pandas · yfinance**  
 > Covers S&P 500 and TSX-listed companies — real-time data, no paid API required.
 
+<img width="2058" height="1265" alt="01_overview" src="https://github.com/user-attachments/assets/0308ac76-8861-4196-ad95-211fbb88646f" />
+<img width="2046" height="1150" alt="04_peer_comparison" src="https://github.com/user-attachments/assets/8627d77a-f1d7-435d-ae46-966f9b1dbbce" />
+<img width="2067" height="1106" alt="03_cash_flow" src="https://github.com/user-attachments/assets/3b6ab9a6-829f-4659-a42f-a788dda6fec1" />
+<img width="2184" height="1134" alt="02_income_statement" src="https://github.com/user-attachments/assets/8ee4f2dc-cd33-43e5-aded-c402d520ebb4" />
 ---
 
 ## What This Project Does
